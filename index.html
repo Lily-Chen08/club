@@ -908,6 +908,326 @@
             margin-top: 0.45rem;
         }
 
+        /* 头部"我的资料"入口 */
+        .hero-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.8rem;
+        }
+
+        .profile-chip {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(6px);
+            color: white;
+            padding: 0.45rem 1rem 0.45rem 0.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.92rem;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .profile-chip:hover {
+            background: rgba(255, 255, 255, 0.26);
+        }
+
+        .profile-chip-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #ffd966;
+            color: #0f2b5c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.05rem;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .profile-chip-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-chip-avatar.emoji {
+            font-size: 1.4rem;
+            background: #eef6ff;
+        }
+
+        .profile-chip-arrow {
+            font-size: 0.7rem;
+            opacity: 0.7;
+        }
+
+        /* 个人资料弹窗 */
+        .modal-profile {
+            max-width: 600px;
+            max-height: 88vh;
+            overflow-y: auto;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 1rem;
+        }
+
+        .form-grid .full-row {
+            grid-column: 1 / -1;
+        }
+
+        .form-error-box {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #b91c1c;
+            border-radius: 0.8rem;
+            padding: 0.7rem 1rem;
+            font-size: 0.85rem;
+            margin-bottom: 1.1rem;
+            display: none;
+        }
+
+        .form-error-box.active {
+            display: block;
+        }
+
+        .form-error-box ul {
+            margin: 0.2rem 0 0 1.1rem;
+        }
+
+        /* 头像选择 */
+        .avatar-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+            align-items: center;
+        }
+
+        .avatar-option {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 2px solid #e2e8f0;
+            background: #f1f5f9;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.15s;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .avatar-option img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-option:hover {
+            border-color: #93b4d6;
+            transform: translateY(-2px);
+        }
+
+        .avatar-option.selected {
+            border-color: #1e4a7a;
+            box-shadow: 0 0 0 3px rgba(30, 74, 122, 0.18);
+        }
+
+        .avatar-upload-btn {
+            height: 46px;
+            padding: 0 1rem;
+            border-radius: 23px;
+            font-size: 0.82rem;
+        }
+
+        /* 爱好多选 */
+        .check-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .check-pill {
+            position: relative;
+        }
+
+        .check-pill input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .check-pill span {
+            display: inline-block;
+            padding: 0.45rem 1.1rem;
+            border-radius: 40px;
+            border: 1px solid #cbd5e1;
+            background: white;
+            font-size: 0.85rem;
+            color: #475569;
+            cursor: pointer;
+            transition: 0.15s;
+            user-select: none;
+        }
+
+        .check-pill input:checked + span {
+            background: #1e4a7a;
+            border-color: #1e4a7a;
+            color: white;
+        }
+
+        /* 资料展示视图 */
+        .profile-view-head {
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            background: linear-gradient(135deg, #f2f7fd 0%, #e5eef9 100%);
+            border-radius: 1.2rem;
+            padding: 1.2rem 1.3rem;
+            margin-bottom: 1.3rem;
+        }
+
+        .profile-view-avatar {
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid white;
+            box-shadow: 0 6px 16px rgba(15, 43, 92, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.6rem;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .profile-view-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-view-head h2 {
+            font-size: 1.4rem;
+            color: #0f2b5c;
+            margin-bottom: 0.25rem;
+        }
+
+        .profile-view-head p {
+            color: #5f7d9c;
+            font-size: 0.88rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.9rem 1.2rem;
+            margin-bottom: 1.3rem;
+        }
+
+        .info-item .info-label {
+            font-size: 0.76rem;
+            color: #94a3b8;
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .info-item .info-value {
+            font-size: 0.95rem;
+            color: #1e293b;
+            font-weight: 500;
+        }
+
+        .info-item .info-value.empty {
+            color: #b6c2cf;
+            font-weight: 400;
+        }
+
+        .info-item.full-row {
+            grid-column: 1 / -1;
+        }
+
+        .profile-hobbies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .profile-hobbies .hobby-tag {
+            background: #eef6ff;
+            color: #1e4a7a;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.3rem 0.9rem;
+            border-radius: 40px;
+        }
+
+        .profile-clubs {
+            border-top: 1px solid #edf2f7;
+            padding-top: 1.1rem;
+            margin-top: 0.3rem;
+        }
+
+        .profile-clubs h3 {
+            font-size: 1rem;
+            color: #0f2b5c;
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .profile-club-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .profile-club-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: #f8fafc;
+            border: 1px solid #e9eef3;
+            border-radius: 0.8rem;
+            padding: 0.55rem 0.9rem;
+            font-size: 0.88rem;
+        }
+
+        .profile-club-item i {
+            color: #1e4a7a;
+        }
+
+        .profile-club-empty {
+            color: #94a3b8;
+            font-size: 0.86rem;
+            background: #f8fafc;
+            border-radius: 0.8rem;
+            padding: 0.8rem 1rem;
+        }
+
+        @media (max-width: 640px) {
+            .hero-actions {
+                align-items: flex-start;
+            }
+            .form-grid, .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* 空状态 */
         .empty-message {
             grid-column: 1 / -1;
@@ -1139,6 +1459,158 @@
                 <div class="detail-footer">
                     <button class="join-btn" id="detailJoinBtn">
                         <i class="fas fa-plus-circle"></i> 加入社团
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 个人资料弹窗 -->
+    <div class="modal-overlay" id="profileOverlay">
+        <div class="modal modal-profile">
+            <button class="detail-close" id="profileCloseBtn" title="关闭">
+                <i class="fas fa-xmark"></i>
+            </button>
+
+            <!-- 表单视图 -->
+            <div id="profileFormView">
+                <h2><i class="fas fa-id-card" style="color: #1e4a7a;"></i> 我的资料</h2>
+                <p class="sub">填写你的个人信息，方便认识同社团的小伙伴</p>
+
+                <div class="form-error-box" id="profileErrorBox">
+                    <i class="fas fa-circle-exclamation"></i> 请检查以下内容：
+                    <ul id="profileErrorList"></ul>
+                </div>
+
+                <form id="profileForm" novalidate>
+                    <div class="form-group">
+                        <label>头像</label>
+                        <div class="avatar-options" id="avatarOptions"></div>
+                        <input type="file" id="avatarFile" accept="image/*" hidden>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>姓名 / 昵称 *</label>
+                            <input type="text" id="pfName" placeholder="例如：陈小满" maxlength="20">
+                        </div>
+                        <div class="form-group">
+                            <label>学号</label>
+                            <input type="text" id="pfStudentId" placeholder="例如：2024110001" maxlength="20">
+                        </div>
+                        <div class="form-group">
+                            <label>性别</label>
+                            <select id="pfGender">
+                                <option value="">请选择</option>
+                                <option value="女">女</option>
+                                <option value="男">男</option>
+                                <option value="保密">保密</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>入学年份</label>
+                            <select id="pfGrade">
+                                <option value="">请选择</option>
+                                <option value="2022级">2022级</option>
+                                <option value="2023级">2023级</option>
+                                <option value="2024级">2024级</option>
+                                <option value="2025级">2025级</option>
+                                <option value="2026级">2026级</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>学院</label>
+                            <input type="text" id="pfCollege" placeholder="例如：信息工程学院" maxlength="30">
+                        </div>
+                        <div class="form-group">
+                            <label>专业</label>
+                            <input type="text" id="pfMajor" placeholder="例如：计算机科学与技术" maxlength="30">
+                        </div>
+                        <div class="form-group">
+                            <label>生日</label>
+                            <input type="date" id="pfBirthday" min="1990-01-01" max="2012-12-31">
+                        </div>
+                        <div class="form-group">
+                            <label>邮箱</label>
+                            <input type="email" id="pfEmail" placeholder="name@example.com" maxlength="50">
+                        </div>
+                        <div class="form-group full-row">
+                            <label>手机号</label>
+                            <input type="tel" id="pfPhone" placeholder="11位手机号（选填）" maxlength="11">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>兴趣爱好（可多选）</label>
+                        <div class="check-options" id="hobbyOptions"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>个人简介</label>
+                        <textarea id="pfBio" rows="3" placeholder="一句话介绍一下自己吧..." maxlength="200"></textarea>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" id="profileCancelBtn">取消</button>
+                        <button type="submit" class="btn btn-primary">保存资料</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 展示视图 -->
+            <div id="profileDisplayView" hidden>
+                <div class="profile-view-head">
+                    <div class="profile-view-avatar" id="displayAvatar"></div>
+                    <div>
+                        <h2 id="displayName">同学</h2>
+                        <p id="displaySub">未填写院系信息</p>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-id-badge"></i> 学号</div>
+                        <div class="info-value" id="displayStudentId"></div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-venus-mars"></i> 性别</div>
+                        <div class="info-value" id="displayGender"></div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-graduation-cap"></i> 入学年份</div>
+                        <div class="info-value" id="displayGrade"></div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-cake-candles"></i> 生日</div>
+                        <div class="info-value" id="displayBirthday"></div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-envelope"></i> 邮箱</div>
+                        <div class="info-value" id="displayEmail"></div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label"><i class="fas fa-phone"></i> 手机号</div>
+                        <div class="info-value" id="displayPhone"></div>
+                    </div>
+                    <div class="info-item full-row">
+                        <div class="info-label"><i class="fas fa-heart"></i> 兴趣爱好</div>
+                        <div class="info-value"><div class="profile-hobbies" id="displayHobbies"></div></div>
+                    </div>
+                    <div class="info-item full-row">
+                        <div class="info-label"><i class="fas fa-pen-line"></i> 个人简介</div>
+                        <div class="info-value" id="displayBio"></div>
+                    </div>
+                </div>
+
+                <div class="profile-clubs">
+                    <h3><i class="fas fa-users" style="color:#1e4a7a;"></i> 我加入的社团</h3>
+                    <div id="displayJoinedClubs"></div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="profileCloseBtn2">关闭</button>
+                    <button type="button" class="btn btn-primary" id="profileEditBtn">
+                        <i class="fas fa-pen"></i> 修改资料
                     </button>
                 </div>
             </div>
@@ -1682,6 +2154,355 @@
                 };
             }
 
+            // ---------- 学生个人资料 ----------
+            const PROFILE_KEY = 'clubCircleProfile_v1';
+            const PRESET_AVATARS = ['😀', '😎', '🥳', '🤓', '😺', '🦊', '🐼', '🦁', '🐧', '🌟'];
+            const HOBBY_CHOICES = ['音乐', '运动', '阅读', '摄影', '旅行', '编程', '美食', '绘画', '动漫', '志愿公益'];
+
+            function emptyProfile() {
+                return {
+                    avatar: '😀', name: '', studentId: '', gender: '', grade: '',
+                    college: '', major: '', birthday: '', email: '', phone: '',
+                    hobbies: [], bio: ''
+                };
+            }
+
+            let profile = (function loadProfile() {
+                try {
+                    const saved = JSON.parse(localStorage.getItem(PROFILE_KEY));
+                    if (saved && typeof saved === 'object') {
+                        return { ...emptyProfile(), ...saved, hobbies: Array.isArray(saved.hobbies) ? saved.hobbies : [] };
+                    }
+                } catch (e) { /* 损坏时重置 */ }
+                return null;  // null 表示从未填写
+            })();
+
+            let tempAvatar = '😀';
+
+            // 头像统一渲染：dataURL 图片 / emoji
+            function renderAvatarInto(el, avatar, big) {
+                if (avatar && avatar.startsWith('data:image')) {
+                    el.className = el.className.split(' ').filter(c => c !== 'emoji').join(' ');
+                    el.innerHTML = `<img src="${escapeAttr(avatar)}" alt="头像">`;
+                } else {
+                    el.classList.add('emoji');
+                    el.textContent = avatar || '😀';
+                }
+            }
+
+            // 头像本地图片 -> 小尺寸压缩 dataURL
+            function fileToAvatarDataUrl(file) {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = () => {
+                        const img = new Image();
+                        img.onload = () => {
+                            const size = 200;
+                            const canvas = document.createElement('canvas');
+                            canvas.width = size;
+                            canvas.height = size;
+                            const ctx = canvas.getContext('2d');
+                            // 居中正方形裁切
+                            const side = Math.min(img.width, img.height);
+                            ctx.drawImage(img,
+                                (img.width - side) / 2, (img.height - side) / 2, side, side,
+                                0, 0, size, size);
+                            resolve(canvas.toDataURL('image/jpeg', 0.8));
+                        };
+                        img.onerror = reject;
+                        img.src = reader.result;
+                    };
+                    reader.onerror = reject;
+                    reader.readAsDataURL(file);
+                });
+            }
+
+            // 头像选项 DOM
+            const avatarOptionsEl = document.getElementById('avatarOptions');
+            const avatarFileEl = document.getElementById('avatarFile');
+
+            function buildAvatarOptions(selected) {
+                avatarOptionsEl.innerHTML = '';
+                let hasSelectedPreset = false;
+                PRESET_AVATARS.forEach(emo => {
+                    const b = document.createElement('button');
+                    b.type = 'button';
+                    b.className = 'avatar-option';
+                    b.textContent = emo;
+                    if (emo === selected) {
+                        b.classList.add('selected');
+                        hasSelectedPreset = true;
+                    }
+                    b.addEventListener('click', () => selectAvatar(emo, b));
+                    avatarOptionsEl.appendChild(b);
+                });
+
+                // 自定义上传头像（若当前头像是 dataURL 也显示选中态）
+                const up = document.createElement('button');
+                up.type = 'button';
+                up.className = 'avatar-option';
+                up.style.fontSize = '1.1rem';
+                up.title = '上传本地图片';
+                up.innerHTML = '<i class="fas fa-camera"></i>';
+                if (selected && selected.startsWith('data:image')) {
+                    up.classList.add('selected');
+                    up.innerHTML = '<img src="' + escapeAttr(selected) + '" alt="">';
+                }
+                up.addEventListener('click', () => avatarFileEl.click());
+                avatarOptionsEl.appendChild(up);
+
+                const uploadText = document.createElement('button');
+                uploadText.type = 'button';
+                uploadText.className = 'btn btn-secondary avatar-upload-btn';
+                uploadText.innerHTML = '<i class="fas fa-upload"></i> 上传头像';
+                uploadText.addEventListener('click', () => avatarFileEl.click());
+                avatarOptionsEl.appendChild(uploadText);
+            }
+
+            function markAvatarSelected(el) {
+                avatarOptionsEl.querySelectorAll('.avatar-option').forEach(o => o.classList.remove('selected'));
+                el.classList.add('selected');
+            }
+
+            function selectAvatar(val, btnEl) {
+                tempAvatar = val;
+                markAvatarSelected(btnEl);
+            }
+
+            avatarFileEl.addEventListener('change', async () => {
+                const file = avatarFileEl.files && avatarFileEl.files[0];
+                if (!file) return;
+                if (!file.type.startsWith('image/')) {
+                    alert('请选择图片文件');
+                    return;
+                }
+                try {
+                    const dataUrl = await fileToAvatarDataUrl(file);
+                    tempAvatar = dataUrl;
+                    // 上传图选中态落在相机按钮上并显示缩略图
+                    const camBtn = avatarOptionsEl.querySelector('.avatar-option[title="上传本地图片"]');
+                    if (camBtn) {
+                        camBtn.innerHTML = '<img src="' + escapeAttr(dataUrl) + '" alt="">';
+                        markAvatarSelected(camBtn);
+                    }
+                } catch (err) {
+                    alert('头像读取失败，请换一张图片试试');
+                } finally {
+                    avatarFileEl.value = '';
+                }
+            });
+
+            // 爱好多选 DOM
+            const hobbyOptionsEl = document.getElementById('hobbyOptions');
+            HOBBY_CHOICES.forEach(h => {
+                const label = document.createElement('label');
+                label.className = 'check-pill';
+                label.innerHTML = `<input type="checkbox" value="${escapeAttr(h)}"><span>${escapeHtml(h)}</span>`;
+                hobbyOptionsEl.appendChild(label);
+            });
+
+            // 表单各字段
+            const pfFields = {
+                name: document.getElementById('pfName'),
+                studentId: document.getElementById('pfStudentId'),
+                gender: document.getElementById('pfGender'),
+                grade: document.getElementById('pfGrade'),
+                college: document.getElementById('pfCollege'),
+                major: document.getElementById('pfMajor'),
+                birthday: document.getElementById('pfBirthday'),
+                email: document.getElementById('pfEmail'),
+                phone: document.getElementById('pfPhone'),
+                bio: document.getElementById('pfBio')
+            };
+
+            function fillForm(p) {
+                pfFields.name.value = p.name || '';
+                pfFields.studentId.value = p.studentId || '';
+                pfFields.gender.value = p.gender || '';
+                pfFields.grade.value = p.grade || '';
+                pfFields.college.value = p.college || '';
+                pfFields.major.value = p.major || '';
+                pfFields.birthday.value = p.birthday || '';
+                pfFields.email.value = p.email || '';
+                pfFields.phone.value = p.phone || '';
+                pfFields.bio.value = p.bio || '';
+                hobbyOptionsEl.querySelectorAll('input').forEach(cb => {
+                    cb.checked = p.hobbies.includes(cb.value);
+                });
+                tempAvatar = p.avatar || '😀';
+                buildAvatarOptions(tempAvatar);
+            }
+
+            // 集中校验：返回错误信息数组
+            function validateProfileForm() {
+                const errors = [];
+                const name = pfFields.name.value.trim();
+                if (!name) errors.push('请填写姓名 / 昵称');
+
+                const email = pfFields.email.value.trim();
+                if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    errors.push('邮箱格式不正确（例如 name@example.com）');
+                }
+
+                const phone = pfFields.phone.value.trim();
+                if (phone && !/^1\d{10}$/.test(phone)) {
+                    errors.push('手机号需为 11 位数字（选填，不填可留空）');
+                }
+
+                const birthday = pfFields.birthday.value;
+                if (birthday) {
+                    const t = new Date(birthday).getTime();
+                    if (Number.isNaN(t) || t < new Date('1990-01-01').getTime() || t > new Date('2012-12-31').getTime()) {
+                        errors.push('生日需在 1990-01-01 至 2012-12-31 之间（选填）');
+                    }
+                }
+                return errors;
+            }
+
+            function collectForm() {
+                return {
+                    avatar: tempAvatar,
+                    name: pfFields.name.value.trim(),
+                    studentId: pfFields.studentId.value.trim(),
+                    gender: pfFields.gender.value,
+                    grade: pfFields.grade.value,
+                    college: pfFields.college.value.trim(),
+                    major: pfFields.major.value.trim(),
+                    birthday: pfFields.birthday.value,
+                    email: pfFields.email.value.trim(),
+                    phone: pfFields.phone.value.trim(),
+                    hobbies: Array.from(hobbyOptionsEl.querySelectorAll('input:checked')).map(cb => cb.value),
+                    bio: pfFields.bio.value.trim()
+                };
+            }
+
+            // 资料弹窗元素与视图切换
+            const profileOverlay = document.getElementById('profileOverlay');
+            const profileFormView = document.getElementById('profileFormView');
+            const profileDisplayView = document.getElementById('profileDisplayView');
+            const profileErrorBox = document.getElementById('profileErrorBox');
+            const profileErrorList = document.getElementById('profileErrorList');
+            const profileEntryBtn = document.getElementById('profileEntryBtn');
+            const chipAvatar = document.getElementById('chipAvatar');
+            const chipText = document.getElementById('chipText');
+
+            function openProfileModal() {
+                if (profile) {
+                    renderDisplayView(profile);
+                } else {
+                    fillForm(emptyProfile());
+                    profileErrorBox.classList.remove('active');
+                    profileFormView.hidden = false;
+                    profileDisplayView.hidden = true;
+                }
+                profileOverlay.classList.add('active');
+            }
+
+            function closeProfileModal() {
+                profileOverlay.classList.remove('active');
+            }
+
+            function showFormView() {
+                fillForm(profile || emptyProfile());
+                profileErrorBox.classList.remove('active');
+                profileDisplayView.hidden = true;
+                profileFormView.hidden = false;
+            }
+
+            // 展示视图渲染
+            function renderDisplayView(p) {
+                profileFormView.hidden = true;
+                profileDisplayView.hidden = false;
+
+                renderAvatarInto(document.getElementById('displayAvatar'), p.avatar);
+                document.getElementById('displayName').textContent = p.name || '同学';
+                const subParts = [p.grade, p.college, p.major].filter(Boolean);
+                document.getElementById('displaySub').textContent = subParts.join(' · ') || '未填写院系信息';
+
+                setInfo('displayStudentId', p.studentId, '未填写');
+                setInfo('displayGender', p.gender, '未填写');
+                setInfo('displayGrade', p.grade, '未填写');
+                setInfo('displayBirthday', p.birthday, '未填写');
+                setInfo('displayEmail', p.email, '未填写');
+                setInfo('displayPhone', p.phone, '未填写');
+                setInfo('displayBio', p.bio, '这个人很神秘，还没有写简介');
+
+                const hobbiesEl = document.getElementById('displayHobbies');
+                if (p.hobbies.length) {
+                    hobbiesEl.innerHTML = p.hobbies.map(h => `<span class="hobby-tag">${escapeHtml(h)}</span>`).join('');
+                } else {
+                    hobbiesEl.innerHTML = '<span class="info-value empty" style="font-size:0.9rem;">未选择</span>';
+                }
+
+                // 已加入社团联动
+                const joined = clubs.filter(c => c.joined);
+                const joinedEl = document.getElementById('displayJoinedClubs');
+                if (joined.length) {
+                    joinedEl.innerHTML = '<div class="profile-club-list">' + joined.map(c =>
+                        `<div class="profile-club-item"><i class="fas ${getIconClass(c.icon)}"></i>${escapeHtml(c.name)}<span class="club-tag" style="margin-left:auto;">${escapeHtml(c.category)}</span></div>`
+                    ).join('') + '</div>';
+                } else {
+                    joinedEl.innerHTML = '<div class="profile-club-empty">还没有加入社团，去"发现社团"看看吧～</div>';
+                }
+            }
+
+            function setInfo(id, value, emptyText) {
+                const el = document.getElementById(id);
+                if (value) {
+                    el.textContent = value;
+                    el.classList.remove('empty');
+                } else {
+                    el.textContent = emptyText;
+                    el.classList.add('empty');
+                }
+            }
+
+            // 同步头部入口
+            function syncProfileChip() {
+                if (profile) {
+                    renderAvatarInto(chipAvatar, profile.avatar);
+                    chipText.textContent = profile.name || '我的资料';
+                } else {
+                    chipAvatar.classList.add('emoji');
+                    chipAvatar.innerHTML = '<i class="fas fa-user"></i>';
+                    chipText.textContent = '填写我的资料';
+                }
+            }
+
+            // ---------- 资料弹窗事件 ----------
+            profileEntryBtn.addEventListener('click', openProfileModal);
+            document.getElementById('profileCloseBtn').addEventListener('click', closeProfileModal);
+            document.getElementById('profileCloseBtn2').addEventListener('click', closeProfileModal);
+            document.getElementById('profileCancelBtn').addEventListener('click', closeProfileModal);
+            document.getElementById('profileEditBtn').addEventListener('click', showFormView);
+
+            profileOverlay.addEventListener('click', (e) => {
+                if (e.target === profileOverlay) closeProfileModal();
+            });
+
+            document.getElementById('profileForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const errors = validateProfileForm();
+                if (errors.length) {
+                    profileErrorList.innerHTML = errors.map(msg => `<li>${escapeHtml(msg)}</li>`).join('');
+                    profileErrorBox.classList.add('active');
+                    return;
+                }
+                profileErrorBox.classList.remove('active');
+                profile = collectForm();
+                try {
+                    localStorage.setItem(PROFILE_KEY, JSON.stringify(profile));
+                } catch (err) {
+                    alert('保存失败：浏览器本地存储空间不足，建议换用预设 emoji 头像（不上传图片）。');
+                    return;
+                }
+                syncProfileChip();
+                renderDisplayView(profile);
+            });
+
+            // 首次加载同步入口
+            syncProfileChip();
+
             // 重置筛选和搜索 (并不重置数据)
             function resetFilters() {
                 activeCategory = 'all';
@@ -1790,12 +2611,13 @@
 
             // Esc 关闭任意打开的弹窗
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    if (detailOverlay.classList.contains('active')) {
-                        closeClubDetail();
-                    } else if (modalOverlay.classList.contains('active')) {
-                        modalOverlay.classList.remove('active');
-                    }
+                if (e.key !== 'Escape') return;
+                if (profileOverlay.classList.contains('active')) {
+                    closeProfileModal();
+                } else if (detailOverlay.classList.contains('active')) {
+                    closeClubDetail();
+                } else if (modalOverlay.classList.contains('active')) {
+                    modalOverlay.classList.remove('active');
                 }
             });
 
