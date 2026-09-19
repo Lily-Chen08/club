@@ -99,11 +99,16 @@
             }
         }
 
-        /* 头部区域 */
+        /* 头部区域（深色封面 + 手机样机） */
         .hero {
-            background: linear-gradient(135deg, #0f2b5c 0%, #1e4a7a 100%);
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(900px 520px at 82% 8%, rgba(99, 102, 241, 0.30), transparent 60%),
+                radial-gradient(720px 460px at 72% 115%, rgba(147, 51, 234, 0.20), transparent 60%),
+                linear-gradient(135deg, #191a3d 0%, #2e2b5e 55%, #232055 100%);
             border-radius: 2rem;
-            padding: 2.5rem 2rem;
+            padding: 2.8rem 2.5rem 4.6rem;
             margin-bottom: 2.5rem;
             color: white;
             box-shadow: 0 15px 30px -10px rgba(0, 20, 50, 0.3);
@@ -111,6 +116,33 @@
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
+            gap: 2rem;
+        }
+
+        .hero-left {
+            position: relative;
+            z-index: 2;
+            max-width: 560px;
+        }
+
+        /* 封面左下角大字水印（仿 UI/UX 样式） */
+        .hero-watermark {
+            position: absolute;
+            left: 2.5rem;
+            bottom: 1.2rem;
+            z-index: 1;
+            font-size: 2.4rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            line-height: 1;
+            color: rgba(255, 255, 255, 0.95);
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .hero-watermark em {
+            font-style: normal;
+            color: #8b8ff5;
         }
 
         .hero h1 {
@@ -140,6 +172,277 @@
             border-radius: 40px;
             font-weight: 500;
             border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        /* 头部手机样机 */
+        .hero-phone-wrap {
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+            padding: 0.4rem 1.2rem 0;
+        }
+
+        .hero-phone-wrap::before {
+            content: '';
+            position: absolute;
+            inset: -50px -70px;
+            background: radial-gradient(closest-side, rgba(99, 102, 241, 0.38), transparent);
+            filter: blur(12px);
+            z-index: -1;
+        }
+
+        .phone-mockup {
+            width: 252px;
+            background: #fff;
+            border-radius: 36px;
+            padding: 10px 10px 8px;
+            box-shadow: 0 34px 64px -22px rgba(0, 0, 15, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .phone-screen {
+            background: #f6f7fb;
+            border-radius: 27px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .phone-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 16px 6px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .phone-status .ph-icons {
+            display: flex;
+            gap: 5px;
+            font-size: 0.58rem;
+        }
+
+        .phone-feed {
+            padding: 4px 10px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .feed-card {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            aspect-ratio: 16 / 10;
+            background: #e2e8f0;
+        }
+
+        .feed-card img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .feed-card .feed-scrim {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 38%, rgba(10, 12, 40, 0.85));
+        }
+
+        .feed-dot {
+            position: absolute;
+            top: 9px;
+            right: 9px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #f43f5e;
+            box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.25);
+        }
+
+        .feed-caption {
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            bottom: 9px;
+            color: #fff;
+        }
+
+        .feed-caption .feed-tag {
+            display: inline-block;
+            font-size: 0.58rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, #ffb347, #ff6b6b);
+            padding: 2px 8px;
+            border-radius: 999px;
+            margin-bottom: 4px;
+        }
+
+        .feed-caption p {
+            font-size: 0.78rem;
+            font-weight: 700;
+            line-height: 1.35;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+        }
+
+        .feed-duration {
+            position: absolute;
+            right: 9px;
+            bottom: 9px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(0, 0, 0, 0.55);
+            color: #fff;
+            font-size: 0.58rem;
+            font-weight: 600;
+            padding: 2px 7px;
+            border-radius: 999px;
+        }
+
+        .feed-actions {
+            display: flex;
+            justify-content: space-around;
+            padding: 2px 4px 0;
+            color: #64748b;
+            font-size: 0.64rem;
+            font-weight: 600;
+        }
+
+        .feed-actions span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* 样机底部导航栏：社团 / 消息 / 社区 / 现场 / 我的 */
+        .phone-tabbar {
+            background: #fff;
+            border-top: 1px solid #eef1f6;
+            display: flex;
+            justify-content: space-between;
+            padding: 9px 14px 5px;
+        }
+
+        .ph-tab {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            min-width: 38px;
+            color: #94a3b8;
+            font-size: 0.6rem;
+            font-weight: 600;
+        }
+
+        .ph-tab i {
+            font-size: 1.05rem;
+        }
+
+        .ph-tab.active {
+            color: #2563eb;
+            font-weight: 700;
+        }
+
+        .ph-reddot {
+            position: absolute;
+            top: -2px;
+            right: 7px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #f43f5e;
+        }
+
+        .ph-center {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            margin-top: -13px;
+            border-radius: 11px;
+            background: linear-gradient(135deg, #60a5fa, #2563eb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 0.88rem;
+            box-shadow: 0 6px 14px -4px rgba(37, 99, 235, 0.75);
+        }
+
+        .ph-center em {
+            position: absolute;
+            top: -7px;
+            right: -9px;
+            font-style: normal;
+            font-size: 0.52rem;
+            font-weight: 700;
+            line-height: 1;
+            color: #fff;
+            background: #f43f5e;
+            padding: 2.5px 5px;
+            border-radius: 999px;
+            border: 1.5px solid #fff;
+        }
+
+        .phone-indicator {
+            width: 86px;
+            height: 5px;
+            border-radius: 999px;
+            background: #0f172a;
+            margin: 8px auto 4px;
+        }
+
+        /* 样机周围漂浮小贴士 */
+        .float-chip {
+            position: absolute;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.96);
+            color: #1e293b;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 7px 11px;
+            border-radius: 999px;
+            box-shadow: 0 12px 26px -10px rgba(0, 0, 20, 0.55);
+            white-space: nowrap;
+            animation: chip-float 4s ease-in-out infinite;
+        }
+
+        .float-chip.one {
+            top: 30px;
+            left: -46px;
+        }
+
+        .float-chip.two {
+            bottom: 92px;
+            right: -38px;
+            animation-delay: 2s;
+        }
+
+        @keyframes chip-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-7px); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .float-chip { animation: none; }
+        }
+
+        @media (max-width: 900px) {
+            .hero-phone-wrap,
+            .hero-watermark {
+                display: none;
+            }
+            .hero {
+                padding: 2.4rem 1.8rem;
+            }
         }
 
         /* 搜索与筛选栏 */
@@ -431,13 +734,40 @@
         .join-btn.joined {
             background: #d1fae5;
             color: #065f46;
-            border-color: #a7f3d0;
-            pointer-events: none;
-            opacity: 0.9;
+            border: 1px solid #a7f3d0;
+            opacity: 0.95;
         }
 
         .join-btn.joined i {
             color: #059669;
+        }
+
+        /* 已加入按钮悬停 -> 暗示可退出 */
+        .join-btn.joined:hover {
+            background: #fee2e2;
+            color: #b91c1c;
+            border-color: #fca5a5;
+        }
+
+        .join-btn.joined:hover i {
+            color: #dc2626;
+        }
+
+        /* 详情弹窗内的"退出社团"按钮 */
+        .join-btn.leave-btn {
+            background: #ffffff;
+            color: #b91c1c;
+            border: 1.5px solid #fca5a5;
+        }
+
+        .join-btn.leave-btn:hover {
+            background: #dc2626;
+            color: #ffffff;
+            border-color: #dc2626;
+        }
+
+        .join-btn.leave-btn:hover i {
+            color: #ffffff;
         }
 
         /* 创建社团卡 (特殊样式) */
@@ -998,7 +1328,7 @@
         .hero-actions {
             display: flex;
             flex-direction: column;
-            align-items: flex-end;
+            align-items: flex-start;
             gap: 0.8rem;
         }
 
@@ -1382,24 +1712,66 @@
             </div>
         </div>
 
-        <!-- 头部 -->
+        <!-- 头部封面（深色底 + 手机样机） -->
         <header class="hero">
-            <div>
+            <div class="hero-left">
                 <h1>
                     <i class="fas fa-users"></i> 社团圈
                 </h1>
                 <p>发现你热爱的，招募你相信的。校园社团，从这里开始。</p>
-            </div>
-            <div class="hero-actions">
-                <div class="hero-badge">
-                    <i class="fas-regular fa-compass"></i> 已有 20+ 活跃社团
+                <div class="hero-actions">
+                    <div class="hero-badge">
+                        <i class="fas-regular fa-compass"></i> 已有 20+ 活跃社团
+                    </div>
+                    <button class="profile-chip" id="profileEntryBtn" type="button">
+                        <span class="profile-chip-avatar" id="chipAvatar"><i class="fas fa-user"></i></span>
+                        <span class="profile-chip-text" id="chipText">填写我的资料</span>
+                        <i class="fas fa-chevron-right profile-chip-arrow"></i>
+                    </button>
                 </div>
-                <button class="profile-chip" id="profileEntryBtn" type="button">
-                    <span class="profile-chip-avatar" id="chipAvatar"><i class="fas fa-user"></i></span>
-                    <span class="profile-chip-text" id="chipText">填写我的资料</span>
-                    <i class="fas fa-chevron-right profile-chip-arrow"></i>
-                </button>
             </div>
+
+            <!-- 手机样机：仿 App 封面 -->
+            <div class="hero-phone-wrap" aria-hidden="true">
+                <div class="float-chip one"><i class="fas fa-fire" style="color:#f97316;"></i> 本周 1.2k 人加入社团</div>
+                <div class="float-chip two"><i class="fas fa-comment-dots" style="color:#2563eb;"></i> 社区有 5 条新回复</div>
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="phone-status">
+                            <span>9:41</span>
+                            <span class="ph-icons"><i class="fas fa-signal"></i><i class="fas fa-wifi"></i><i class="fas fa-battery-three-quarters"></i></span>
+                        </div>
+                        <div class="phone-feed">
+                            <div class="feed-card">
+                                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Lively%20university%20club%20fair%20at%20dusk%2C%20colorful%20booth%20tents%2C%20crowds%20of%20excited%20students%2C%20warm%20string%20lights%2C%20energetic%20youthful%20atmosphere%2C%20realistic%20photography%2C%20no%20text%2C%20no%20watermark&image_size=landscape_16_9" alt="">
+                                <div class="feed-scrim"></div>
+                                <span class="feed-dot"></span>
+                                <div class="feed-caption">
+                                    <span class="feed-tag">招新现场</span>
+                                    <p>「百团大战」遇见最好的社团！</p>
+                                </div>
+                                <span class="feed-duration"><i class="fas fa-play"></i> 02:47</span>
+                            </div>
+                            <div class="feed-actions">
+                                <span><i class="fas fa-heart"></i> 2.1k</span>
+                                <span><i class="fas fa-comment"></i> 326</span>
+                                <span><i class="fas fa-share"></i> 98</span>
+                                <span><i class="fas fa-bookmark"></i> 收藏</span>
+                            </div>
+                        </div>
+                        <nav class="phone-tabbar">
+                            <div class="ph-tab"><i class="fas fa-compass"></i><span>社团</span></div>
+                            <div class="ph-tab"><i class="far fa-comment-dots"></i><span>消息</span><span class="ph-reddot"></span></div>
+                            <div class="ph-tab active"><span class="ph-center"><i class="fas fa-comment"></i><em>5</em></span><span>社区</span></div>
+                            <div class="ph-tab"><i class="fas fa-circle-play"></i><span>现场</span></div>
+                            <div class="ph-tab"><i class="far fa-face-smile"></i><span>我的</span></div>
+                        </nav>
+                        <div class="phone-indicator"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-watermark">CLUB <em>/</em> 社团圈</div>
         </header>
 
         <!-- 搜索和分类 -->
@@ -1984,7 +2356,7 @@
                                     <div class="member-count">
                                         <i class="fas fa-user-group"></i> ${club.members} 人
                                     </div>
-                                    <button class="join-btn ${joinedClass}" data-id="${club.id}" ${club.joined ? 'disabled' : ''}>
+                                    <button class="join-btn ${joinedClass}" data-id="${club.id}" title="${club.joined ? '点击退出该社团' : ''}">
                                         <i class="fas ${joinedIcon}"></i> ${joinedText}
                                     </button>
                                 </div>
@@ -1994,12 +2366,17 @@
                 });
                 clubsGrid.innerHTML = html;
 
-                // 重新绑定加入按钮事件
-                document.querySelectorAll('.join-btn').forEach(btn => {
+                // 重新绑定卡片上的加入/退出按钮事件（仅卡片区域，不含详情弹窗按钮）
+                clubsGrid.querySelectorAll('.join-btn').forEach(btn => {
                     btn.addEventListener('click', function(e) {
                         e.stopPropagation();
                         const id = this.dataset.id;
-                        joinClub(id);
+                        const club = clubs.find(c => c.id === id);
+                        if (club && club.joined) {
+                            leaveClub(id);
+                        } else {
+                            joinClub(id);
+                        }
                     });
                 });
 
@@ -2050,6 +2427,21 @@
                 }
             }
 
+            // 退出社团逻辑（二次确认，防止误点）
+            function leaveClub(clubId) {
+                const club = clubs.find(c => c.id === clubId);
+                if (!club || !club.joined) return;
+                if (!confirm('确定要退出「' + club.name + '」吗？')) return;
+                club.joined = false;
+                club.members = Math.max(0, club.members - 1);  // 成员数减 1，不为负
+                saveClubs();
+                renderClubs();
+                // 如果详情弹窗正打开着，同步按钮和人数
+                if (currentDetailId === clubId) {
+                    renderClubDetail(club);
+                }
+            }
+
             // ---------- 社团详情：查看 / 编辑详细介绍 ----------
 
             function openClubDetail(clubId) {
@@ -2085,11 +2477,11 @@
                         + '还没有填写详细介绍<br>点击右上角"编辑介绍"来补充内容吧</div>';
                 }
 
-                // 加入按钮状态
+                // 底部按钮：未加入 -> 加入社团；已加入 -> 退出社团
                 if (club.joined) {
-                    detailJoinBtn.className = 'join-btn joined';
-                    detailJoinBtn.disabled = true;
-                    detailJoinBtn.innerHTML = '<i class="fas fa-check-circle"></i> 已加入';
+                    detailJoinBtn.className = 'join-btn leave-btn';
+                    detailJoinBtn.disabled = false;
+                    detailJoinBtn.innerHTML = '<i class="fas fa-right-from-bracket"></i> 退出社团';
                 } else {
                     detailJoinBtn.className = 'join-btn';
                     detailJoinBtn.disabled = false;
@@ -2709,9 +3101,16 @@
             });
             saveDetailBtn.addEventListener('click', saveClubDetail);
 
-            // 详情弹窗内点击"加入社团"
+            // 详情弹窗内点击"加入社团" / "退出社团"
             detailJoinBtn.addEventListener('click', () => {
-                if (currentDetailId) joinClub(currentDetailId);
+                if (!currentDetailId) return;
+                const club = clubs.find(c => c.id === currentDetailId);
+                if (!club) return;
+                if (club.joined) {
+                    leaveClub(currentDetailId);
+                } else {
+                    joinClub(currentDetailId);
+                }
             });
 
             // Esc 关闭任意打开的弹窗
@@ -2811,4 +3210,4 @@
         })();
     </script>
 </body>
-</html>学生发起｜AI工具交流搭子招募
+</html>
