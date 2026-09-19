@@ -437,6 +437,8 @@
             background: white;
             max-width: 500px;
             width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
             border-radius: 2rem;
             padding: 2rem 1.8rem;
             box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.4);
@@ -500,8 +502,14 @@
         .modal-actions {
             display: flex;
             gap: 1rem;
-            margin-top: 1.8rem;
+            margin: 1.8rem -1.8rem 0;
+            padding: 0.9rem 1.8rem 0.2rem;
             justify-content: flex-end;
+            position: sticky;
+            bottom: -2rem;
+            background: linear-gradient(to top, #ffffff 78%, rgba(255, 255, 255, 0));
+            border-radius: 0 0 2rem 2rem;
+            z-index: 6;
         }
 
         .btn {
@@ -732,9 +740,14 @@
         .detail-footer {
             display: flex;
             justify-content: flex-end;
-            margin-top: 1.6rem;
+            margin: 1.6rem -1.8rem 0;
+            padding: 1rem 1.8rem 1.8rem;
             border-top: 1px solid #edf2f7;
-            padding-top: 1.3rem;
+            background: #ffffff;
+            position: sticky;
+            bottom: 0;
+            border-radius: 0 0 2rem 2rem;
+            z-index: 5;
         }
 
         .detail-footer .join-btn {
@@ -1962,6 +1975,8 @@
                 renderClubDetail(club);
                 exitEditMode();
                 detailOverlay.classList.add('active');
+                const dm = detailOverlay.querySelector('.modal');
+                if (dm) dm.scrollTop = 0;
             }
 
             function closeClubDetail() {
@@ -2396,6 +2411,8 @@
                     profileDisplayView.hidden = true;
                 }
                 profileOverlay.classList.add('active');
+                const pm = profileOverlay.querySelector('.modal');
+                if (pm) pm.scrollTop = 0;
             }
 
             function closeProfileModal() {
@@ -2407,6 +2424,8 @@
                 profileErrorBox.classList.remove('active');
                 profileDisplayView.hidden = true;
                 profileFormView.hidden = false;
+                const pm = profileOverlay.querySelector('.modal');
+                if (pm) pm.scrollTop = 0;
             }
 
             // 展示视图渲染
@@ -2570,6 +2589,8 @@
                 createClubForm.reset();
                 createCoverPicker.reset('');
                 modalOverlay.classList.add('active');
+                const m = modalOverlay.querySelector('.modal');
+                if (m) m.scrollTop = 0;
             });
 
             // 取消按钮 / 点击遮罩关闭
